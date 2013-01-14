@@ -1,9 +1,11 @@
 theme-on-time
 =============
 
-Loads a different emacs theme depending on the time of day. Uses the Emacs 24 load-theme function. In my case, I liked
-the sanityinc-tomorrow-* themes, so I used that. It should be trivial to adjust the `theme-on-time` function to
-load different themes at different times of day.
+Loads a different emacs theme depending on the time of day. Uses the
+Emacs 24 load-theme function. In my case, I liked the
+sanityinc-tomorrow-* themes, so I used that. It should be trivial to
+adjust the `theme-on-time` function to load different themes at
+different times of day.
 
 Adding the following to your .emacs:
 
@@ -14,5 +16,10 @@ Adding the following to your .emacs:
     (run-at-time "06:00pm" nil 'theme-on-time)
     (run-at-time "12:00pm" nil 'theme-on-time)
     
-Will result in running `theme-on-time` once after the completion of the rest of the `.emacs` or `.emacs.d/init.el`.
-It will also run at the times indicated; different times may make more sense for different people.
+Will result in running `theme-on-time` once after the completion of
+the rest of the `.emacs` or `.emacs.d/init.el`.  It will also run at
+the times indicated; different times may make more sense for different
+people.
+
+_Note:_ you cannot just run `(theme-on-time)` from the init file; it
+has to be executed after all the initialization has completed.
